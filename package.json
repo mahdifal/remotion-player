@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^37.1.0",
+    "@ckeditor/ckeditor5-react": "^6.0.0",
     "@remotion/eslint-plugin": "^3.3.94",
     "@remotion/player": "^3.3.94",
     "bootstrap": "^5.2.3",
@@ -19,6 +21,7 @@
     "remotion": "^3.3.94"
   },
   "devDependencies": {
+    "@types/draft-js": "^0.11.10",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",

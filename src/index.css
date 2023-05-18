@@ -1,0 +1,31 @@
+.play-icon {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.play-icon::before,
+.play-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.play-icon::before {
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent #000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.play-icon::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: #000;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -5,14 +5,14 @@ import { Video } from "./components/Video";
 import Header from "./components/Header";
 
 function App() {
-  const playerRef = useRef<PlayerRef>(null);
+  const videoPlayerRef = useRef<PlayerRef>(null);
 
-  const pauseVid = () => {
-    playerRef?.current?.pause();
+  const pauseVideo = () => {
+    videoPlayerRef?.current?.pause();
   };
 
-  const playVid = () => {
-    playerRef?.current?.play();
+  const playVideo = () => {
+    videoPlayerRef?.current?.play();
   };
 
   return (
@@ -25,12 +25,12 @@ function App() {
             compositionWidth={900}
             compositionHeight={600}
             durationInFrames={1000}
-            ref={playerRef}
+            ref={videoPlayerRef}
             spaceKeyToPlayOrPause={false}
-            clickToPlay={false}
+            clickToPlay={true}
             controls
             fps={60}
-            inputProps={{ playVid, pauseVid }}
+            inputProps={{ playVideo, pauseVideo }}
           />
         </Col>
       </Row>

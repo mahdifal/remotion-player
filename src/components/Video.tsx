@@ -3,7 +3,12 @@ import Logo from "./Logo";
 import { EditableText } from "./EditableText";
 import { Title } from "./Title";
 
-export const Video = () => {
+export type VidepProps = {
+  playVideo: () => void;
+  pauseVideo: () => void;
+};
+
+export const Video = ({ playVideo, pauseVideo }: VidepProps) => {
   return (
     <AbsoluteFill style={{ backgroundColor: "white" }}>
       <AbsoluteFill>
@@ -16,7 +21,7 @@ export const Video = () => {
         </Sequence>
 
         <Sequence from={75}>
-          <EditableText />
+          <EditableText playVideo={playVideo} pauseVideo={pauseVideo} />
         </Sequence>
       </AbsoluteFill>
     </AbsoluteFill>
