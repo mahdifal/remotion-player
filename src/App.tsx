@@ -1,8 +1,8 @@
-import { useRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { Player, PlayerRef } from "@remotion/player";
-import { Video } from "./components/Video";
-import Header from "./components/Header";
+import { useRef } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Player, PlayerRef } from '@remotion/player';
+import { Video } from './components/Video';
+import Header from './components/Header';
 
 function App() {
   const videoPlayerRef = useRef<PlayerRef>(null);
