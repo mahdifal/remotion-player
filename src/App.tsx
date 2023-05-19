@@ -27,7 +27,7 @@ function App() {
             durationInFrames={1000}
             ref={videoPlayerRef}
             spaceKeyToPlayOrPause={false}
-            clickToPlay={true}
+            clickToPlay={false}
             controls
             fps={60}
             inputProps={{ playVideo, pauseVideo }}

@@ -1,31 +1,23 @@
-.play-icon {
-  width: 50px;
-  height: 50px;
-  position: relative;
-}
+.button {
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 20px;
 
-.play-icon::before,
-.play-icon::after {
-  content: "";
-  position: absolute;
-}
+  border-color: transparent transparent transparent #72d0b9;
+  transition: 100ms all ease;
+  cursor: pointer;
 
-.play-icon::before {
   border-style: solid;
   border-width: 10px 0 10px 20px;
-  border-color: transparent transparent transparent #000;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 
-.play-icon::after {
-  content: "";
-  width: 12px;
-  height: 12px;
-  background-color: #000;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  &.paused {
+    border-style: double;
+    border-width: 0px 0 0px 30px;
+  }
+
+  &:hover {
+    border-color: transparent transparent transparent #3eb497;
+  }
 }
