@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent, ReactElement } from "react";
+import React, { useState, MouseEvent, ReactElement } from 'react';
 
 interface DraggableComponentProps {
   onPauseVideo: () => void;
@@ -6,11 +6,7 @@ interface DraggableComponentProps {
   children: React.ReactNode;
 }
 
-const DraggableComponent = ({
-  children,
-  onPauseVideo,
-  playButton,
-}: DraggableComponentProps) => {
+const DraggableComponent = ({ children, onPauseVideo, playButton }: DraggableComponentProps) => {
   const [position, setPosition] = useState<{ x: number; y: number }>({
     x: 0,
     y: 0,
@@ -44,14 +40,15 @@ const DraggableComponent = ({
   return (
     <div
       style={{
-        position: "absolute",
+        position: 'absolute',
         left: position.x,
         top: position.y,
-        cursor: isDragging ? "grabbing" : "grab",
+        cursor: isDragging ? 'grabbing' : 'grab',
       }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
+      data-testid="draggable-component"
     >
       {playButton}
       {children}

@@ -1,9 +1,9 @@
-import React from "react";
-import reactLogo from "../assets/react.svg";
+import React from 'react';
+import reactLogo from '../assets/react.svg';
 
 const logoBox: React.CSSProperties = {
-  textAlign: "center",
-  width: "100%",
+  textAlign: 'center',
+  width: '100%',
 };
 
 const logoStyle: React.CSSProperties = {
@@ -12,8 +12,8 @@ const logoStyle: React.CSSProperties = {
 
 function Logo() {
   return (
-    <div style={logoBox}>
-      <img src={reactLogo} style={logoStyle} alt="React logo" />
+    <div style={logoBox} data-testid="logo-box">
+      <img src={reactLogo} style={logoStyle} alt="React logo" data-testid="logo-image" />
     </div>
   );
 }

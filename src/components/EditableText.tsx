@@ -5,7 +5,7 @@ import { VidepProps } from './Video';
 export const EditableText = ({ playVideo, pauseVideo }: VidepProps) => {
   return (
     <DraggableComponent onPauseVideo={pauseVideo} playButton={<button className="button" onClick={playVideo}></button>}>
-      <Editor onPauseVideo={pauseVideo} onPlayVideo={playVideo} />
+      <Editor onPauseVideo={pauseVideo} />
     </DraggableComponent>
   );
 };

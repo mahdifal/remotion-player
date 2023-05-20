@@ -4,14 +4,13 @@ import useLocalStorage from '../hooks/useLocalStorage';
 
 interface Props {
   onPauseVideo: () => void;
-  onPlayVideo: () => void;
 }
 
-const Editor = ({ onPauseVideo, onPlayVideo }: Props) => {
+const Editor = ({ onPauseVideo }: Props) => {
   const [editableText, setEditableText] = useLocalStorage<string>('editable editor', '<p>This text is editable</p>');
 
   return (
-    <div style={{ width: '400px', height: '100px' }}>
+    <div style={{ width: '400px', height: '100px' }} data-testid="ckeditor">
       <CKEditor
         editor={ClassicEditor}
         data={editableText}
