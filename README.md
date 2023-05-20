@@ -43,6 +43,12 @@ http://localhost:5173/
 npm run build
 ```
 
+4- for runing unit test
+
+```sh
+npm run test
+```
+
 \* if you want to use docker for running the app use the below command on termial
 
 ```sh
