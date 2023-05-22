@@ -1,16 +1,14 @@
-import React, { useState, MouseEvent, ReactElement } from 'react';
+import React, { useState, MouseEvent, ReactElement, useEffect } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 interface DraggableComponentProps {
-  onPauseVideo: () => void;
+  onPauseVideo?: () => void;
   playButton: ReactElement;
   children: React.ReactNode;
 }
 
 const DraggableComponent = ({ children, onPauseVideo, playButton }: DraggableComponentProps) => {
-  const [position, setPosition] = useState<{ x: number; y: number }>({
-    x: 0,
-    y: 0,
-  });
+  const [position, setPosition] = useLocalStorage<{ x: number; y: number }>('position', { x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [offset, setOffset] = useState<{ x: number; y: number }>({
     x: 0,
@@ -24,6 +22,7 @@ const DraggableComponent = ({ children, onPauseVideo, playButton }: DraggableCom
       y: event.clientY - position.y,
     });
   };
+
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     if (!isDragging) return;
     if (onPauseVideo) onPauseVideo();
@@ -36,6 +35,20 @@ const DraggableComponent = ({ children, onPauseVideo, playButton }: DraggableCom
   const handleMouseUp = () => {
     setIsDragging(false);
   };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      // Reset the position if it goes off-screen on window resize
+      const { innerWidth, innerHeight } = window;
+      setPosition((prevPosition) => ({
+        x: Math.min(prevPosition.x, innerWidth),
+        y: Math.min(prevPosition.y, innerHeight),
+      }));
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, [setPosition]);
 
   return (
     <div

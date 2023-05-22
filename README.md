@@ -1,55 +1,65 @@
 # Video Player with Editable Text
 
-Video Player with Editable Text created using React and Typescript.
+Video Player with Editable Text is a web application created using React and TypeScript.
 
-<img alt="view-1" src="./screen.png">
+![View](./screen.png)
 
 ## Packages
 
-- react, typescript, vite
-- bootstrap, react-bootstrap, remotion
-- @remotion/player, ckeditor, eslint, prettier
+- React
+- TypeScript
+- Vite
+- Bootstrap
+- React-Bootstrap
+- Remotion
+- @remotion/player
+- CKEditor
+- ESLint
+- Prettier
 
 ## Installation
 
-App requires [Node.js](https://nodejs.org/) v16+ to run.
+To run the application, you need to have Node.js (v16+) installed on your system.
 
-Install the dependencies and start the project.
+1. Clone the repository and navigate to the project folder.
 
 ```sh
 cd project
-npm i
 ```
 
-#
+2. Install the dependencies.
 
-## How to use
+```sh
+npm install
+```
 
-1- run the project
+## Usage
+
+1- Start the development server.
 
 ```sh
 npm run start
 ```
 
-2- open the browser and go to the below link
+2- Open your browser and go to the following link:
 
 ```sh
 http://localhost:5173/
 ```
 
-3- for production
+3- For production build:
 
 ```sh
 npm run build
 ```
 
-4- for runing unit test
+4- To run unit tests:
 
 ```sh
 npm run test
 ```
 
-\* if you want to use docker for running the app use the below command on termial
+\* Note: If you prefer to use Docker for running the app, use the following command in the terminal:
 
 ```sh
 docker compose up
