@@ -1,16 +1,35 @@
+import { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import useLocalStorage from '../hooks/useLocalStorage';
+import { cleanHTML } from '../utils/HTMLUtils';
 
 interface Props {
   onPauseVideo: () => void;
+  onPlayVideo: () => void;
 }
 
-const Editor = ({ onPauseVideo }: Props) => {
-  const [editableText, setEditableText] = useLocalStorage<string>('editable editor', '<p>This text is editable</p>');
+const Editor = ({ onPauseVideo, onPlayVideo }: Props) => {
+  const [editableText, setEditableText] = useLocalStorage<string>('editable_editor', '<p>This Text is Editabel</p>');
 
-  return (
-    <div style={{ width: '400px', height: '100px' }} data-testid="ckeditor">
+  const [editMode, setEditMode] = useState(false);
+
+  const handlePause = () => {
+    setEditMode(!editMode);
+    onPauseVideo();
+  };
+
+  const handlePlay = () => {
+    setEditMode(!editMode);
+    onPlayVideo();
+  };
+
+  return !editMode ? (
+    <div className="editor-box text-editable" data-testid="ckeditor">
+      <div dangerouslySetInnerHTML={cleanHTML(editableText)} onClick={handlePause} />
+    </div>
+  ) : (
+    <div className="editor-box" data-testid="ckeditor">
       <CKEditor
         editor={ClassicEditor}
         data={editableText}
@@ -28,6 +47,7 @@ const Editor = ({ onPauseVideo }: Props) => {
           },
         }}
       />
+      <button className="play-button play-button-positon" onClick={handlePlay} />
     </div>
   );
 };

@@ -17,7 +17,7 @@ function App() {
 
   return (
     <Container>
-      <Header />
+      <Header title="Video Player with Editable Text" />
       <Row>
         <Col className="d-flex justify-content-center align-items-center mt-5">
           <Player

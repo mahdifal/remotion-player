@@ -1,4 +1,4 @@
-.button {
+.play-button {
   border: 0;
   background: transparent;
   box-sizing: border-box;
@@ -20,4 +20,21 @@
   &:hover {
     border-color: transparent transparent transparent #3eb497;
   }
+}
+
+.play-button-positon {
+  position: absolute;
+  top: 8px;
+  left: -22px;
+  bottom: 10px;
+}
+
+.editor-box {
+  width: 400px;
+  height: 100px;
+}
+
+.text-editable {
+  margin-top: 54px;
+  margin-left: 11px;
 }
